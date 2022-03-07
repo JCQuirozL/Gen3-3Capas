@@ -170,6 +170,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\BLLChoferes.cs" />
     <Compile Include="Catalogos\Choferes\ListadoChoferes.aspx.cs">
       <DependentUpon>ListadoChoferes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,7 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BLL\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
