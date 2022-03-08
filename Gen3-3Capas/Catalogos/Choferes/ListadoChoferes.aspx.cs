@@ -12,10 +12,28 @@ namespace Gen3_3Capas.Catalogos.Choferes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<ChoferesVO> Listado = BLL.BLLChoferes.GetLstChoferes(null);
-            GridView1.DataSource = Listado;
-            GridView1.DataBind();
-            int x = 0;
+            if (!IsPostBack)
+            {
+                try
+                {
+                    RefrescaGrid();
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+         
+        }
+
+        private void RefrescaGrid()
+        {
+            //Llenar el grid con la lista de ChoferesVO
+            GVChoferes.DataSource = BLL.BLLChoferes.GetLstChoferes(null);
+
+            //actualiza el contenido del grid
+            GVChoferes.DataBind();
         }
     }
 }

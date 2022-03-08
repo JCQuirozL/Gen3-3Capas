@@ -52,7 +52,7 @@ namespace Gen3_3Capas.DAL
         {
             try
             {
-                DBConnection.ExecuteNonQuery("Choferes_Insertar","@Nombre", paramNombre, "@ApPaterno", ApPaterno, "@Apmaterno", ApMaterno, "@Telefono", paramTelefono, "@FechaNacimiento", paramFechaNacimiento, "@Licencia", paramLicencia, "@UrlFoto", paramUrlFoto);
+                DBConnection.ExecuteNonQuery("Choferes_Insertar","@Nombre", paramNombre, "@ApPaterno", ApPaterno, "@Apmaterno", ApMaterno, "@Telefono", paramTelefono, "@FechaNac", paramFechaNacimiento, "@Licencia", paramLicencia, "@UrlFoto", paramUrlFoto);
             }
             catch (Exception ex)
             {
