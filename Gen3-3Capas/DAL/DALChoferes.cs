@@ -118,8 +118,8 @@ namespace Gen3_3Capas.DAL
         {
             try
             {
-                //LLamar al Store Procedure "Chofer_EnRuta de la BDD"
-                DataSet dsChofer = DBConnection.ExecuteDataSet("Chofer_EnRuta", "@id", id);
+                //LLamar al Store Procedure "En_Ruta de la BDD con el argumento @entidad=1, porque es cuando entra a comparar el ChoferId a la tabla Rutas"
+                DataSet dsChofer = DBConnection.ExecuteDataSet("En_Ruta", "@id", id,"@entidad",1);
 
                 //Si encontró registros entonces quiere decir que encontró choferes asignados a alguna ruta
                 if(dsChofer.Tables[0].Rows.Count > 0)

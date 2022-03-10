@@ -1,4 +1,5 @@
-﻿using Gen3_3Capas.VO;
+﻿using Gen3_3Capas.Utils;
+using Gen3_3Capas.VO;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -61,7 +62,7 @@ namespace Gen3_3Capas.DAL
                 SqlCommand cmd = new SqlCommand(Query, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Matricula", Matricula);
-                cmd.Parameters.AddWithValue("@TipoCamion", TipoCamion);
+                cmd.Parameters.AddWithValue("@Tipo_Camion", TipoCamion);
                 cmd.Parameters.AddWithValue("@Modelo", Modelo);
                 cmd.Parameters.AddWithValue("@Marca", Marca);
                 cmd.Parameters.AddWithValue("@Capacidad", Capacidad);
@@ -174,6 +175,32 @@ namespace Gen3_3Capas.DAL
                 
             }
             catch (Exception Ex)
+            {
+
+                throw;
+            }
+        }
+
+        public static bool CamionEnRuta(int id)
+        {
+            try
+            {
+                //mando llamar al stre procedure en ruta con el parámetro @entidad=0 porq es cuando entra a comparar el CamionId
+                DataSet dsCamion = DBConnection.ExecuteDataSet("En_Ruta", "@id", id, "@entidad", 0);
+
+                //Si encontró registros entonces quiere decir que encontró camiones asignados a alguna ruta
+                if (dsCamion.Tables[0].Rows.Count > 0)
+                {
+                    //Por lógica de negocio no puedes eliminar un camión que históricamente está en la tabla rutas
+                    return true;
+                }
+                else
+                {
+                    //Devolvemos false para posteriormente eliminar
+                    return false;
+                }
+            }
+            catch (Exception)
             {
 
                 throw;

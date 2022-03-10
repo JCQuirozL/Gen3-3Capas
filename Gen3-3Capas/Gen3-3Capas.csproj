@@ -109,6 +109,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Catalogos\Camiones\AltaCamion.aspx" />
+    <Content Include="Catalogos\Camiones\EdicionCamion.aspx" />
     <Content Include="Catalogos\Camiones\ListadoCamiones.aspx" />
     <Content Include="Catalogos\Choferes\AltaChofer.aspx" />
     <Content Include="Catalogos\Choferes\EdicionChofer.aspx" />
@@ -183,6 +185,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\BLLCamiones.cs" />
     <Compile Include="BLL\BLLChoferes.cs" />
+    <Compile Include="Catalogos\Camiones\AltaCamion.aspx.cs">
+      <DependentUpon>AltaCamion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Camiones\AltaCamion.aspx.designer.cs">
+      <DependentUpon>AltaCamion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Camiones\EdicionCamion.aspx.cs">
+      <DependentUpon>EdicionCamion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Camiones\EdicionCamion.aspx.designer.cs">
+      <DependentUpon>EdicionCamion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Catalogos\Camiones\ListadoCamiones.aspx.cs">
       <DependentUpon>ListadoCamiones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

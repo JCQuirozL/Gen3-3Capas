@@ -49,7 +49,7 @@ namespace Gen3_3Capas.BLL
             }
         }
 
-        public static string UpdCamion(int id, string Matricula, string TipoCamion, int Modelo, string Marca, int Capacidad, double Kilometraje, bool Disponibilidad, string UrlFoto)
+        public static string UpdCamion(int id, string Matricula, string TipoCamion, int? Modelo, string Marca, int? Capacidad, double? Kilometraje, bool? Disponibilidad, string UrlFoto)
         {
             //No se puede repetir la matrícula
             try
@@ -88,17 +88,28 @@ namespace Gen3_3Capas.BLL
 
             try
             {
-                CamionesVO camiones = DALCamiones.GetCamionById(id);
+               
 
-                if (camiones.Disponibilidad)
+                bool enRuta = DAL.DALCamiones.CamionEnRuta(id);
+                if (!enRuta)
                 {
-                    DALCamiones.DelCamion(id);
-                    return "Camión eliminado";
+                    CamionesVO camiones = DALCamiones.GetCamionById(id);
+                    if (camiones.Disponibilidad)
+                    {
+                        DALCamiones.DelCamion(id);
+                        return "Camión eliminado";
+                    }
+                    else
+                    {
+                        return "El camión no está disponible";
+                    }
                 }
                 else
                 {
-                    return "El camión se encuentra en una ruta o no está disponible";
+                    return "El camión se encuentra en una ruta";
                 }
+
+               
             }
             catch (Exception)
             {
@@ -106,6 +117,11 @@ namespace Gen3_3Capas.BLL
                 throw;
             }
 
+        }
+
+        public static CamionesVO GetById(int id)
+        {
+            return DAL.DALCamiones.GetCamionById(id);
         }
     }
 }

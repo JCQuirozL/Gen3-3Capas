@@ -6,28 +6,30 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <h3>Listado de camiones</h3>
-                acá pintar el grid
-                <asp:GridView ID="GVCamiones" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-striped table-condensed" DataKeyNames="Id" OnRowCancelingEdit="GVCamiones_RowCancelingEdit" OnRowCommand="GVCamiones_RowCommand" OnRowDeleting="GVCamiones_RowDeleting" OnRowEditing="GVCamiones_RowEditing" OnRowUpdating="GVCamiones_RowUpdating" OnRowDataBound="GVCamiones_RowDataBound">
+               
+                <asp:GridView ID="GVCamiones" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-striped table-condensed" DataKeyNames="Id" OnRowCancelingEdit="GVCamiones_RowCancelingEdit" OnRowCommand="GVCamiones_RowCommand" OnRowDeleting="GVCamiones_RowDeleting" OnRowEditing="GVCamiones_RowEditing" OnRowUpdating="GVCamiones_RowUpdating" >
                     <Columns>
                         <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Seleccionar">
-                            <ControlStyle CssClass="btn btn-success btn-xs" />
+                            <ControlStyle CssClass="btn btn-success" />
                             <ItemStyle Width="70px" />
                         </asp:ButtonField>
                         <asp:CommandField ButtonType="Button" ShowDeleteButton="True">
-                            <ControlStyle CssClass="btn btn-danger btn-xs" />
+                            <ControlStyle CssClass="btn btn-danger" />
                             <ItemStyle Width="70px" />
                         </asp:CommandField>
                         <asp:CommandField ButtonType="Button" ShowEditButton="True">
-                            <ControlStyle CssClass="btn btn-primary bn-xs" />
+                            <ControlStyle CssClass="btn btn-primary" />
                             <ItemStyle Width="70px" />
                         </asp:CommandField>
                         <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True">
                             <ItemStyle Width="50px" />
                         </asp:BoundField>
                         <asp:BoundField DataField="Matricula" HeaderText="Matrícula" ReadOnly="True">
-                            <ItemStyle Width="150px" />
+                            <ControlStyle Width="350px" />
+                            <ItemStyle Width="350px" />
                         </asp:BoundField>
                         <asp:TemplateField HeaderText="Tipo Camión">
+                            <ControlStyle Width="150px" />
                             <ItemStyle Width="150px" />
                             <ItemTemplate>
                                 <asp:Label ID="lblTipoCamion" runat="server" Text='<%#Eval("TipoCamion") %>'></asp:Label>
@@ -37,6 +39,7 @@
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Modelo">
+                            <ControlStyle Width="100px" />
                             <ItemStyle Width="100px" />
                             <ItemTemplate>
                                 <asp:Label ID="lblModelo" runat="server" Text='<%#Eval("Modelo") %>'></asp:Label>
@@ -46,6 +49,7 @@
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Marca">
+                            <ControlStyle Width="150px" />
                             <ItemStyle Width="150px" />
                              <ItemTemplate>
                                 <asp:Label ID="lblMarca" runat="server" Text='<%#Eval("Marca") %>'></asp:Label>
@@ -64,7 +68,7 @@
                             <ItemStyle Width="70px" />
                         </asp:CheckBoxField>
                         <asp:ImageField DataImageUrlField="UrlFoto" HeaderText="Foto" ReadOnly="True">
-                            <ControlStyle Height="90px" Width="120px" />
+                            <ControlStyle Height="50px" Width="60px" />
                             <ItemStyle Width="120px" />
                         </asp:ImageField>
                     </Columns>
