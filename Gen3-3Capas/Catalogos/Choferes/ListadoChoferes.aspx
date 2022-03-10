@@ -7,14 +7,14 @@
             <div class="col-md-10 col-md-offset-1" style="scroll-margin-left: 40px;">
                 <h3>Listado de Choferes
                 </h3>
-                <asp:GridView ID="GVChoferes" CssClass="table table-bordered table-striped table-condensed" runat="server" AutoGenerateColumns="false">
+                <asp:GridView ID="GVChoferes" CssClass="table table-bordered table-striped table-condensed" runat="server" AutoGenerateColumns="false" OnRowDeleting="GVChoferes_RowDeleting" DataKeyNames="IdChofer" OnRowEditing="GVChoferes_RowEditing" OnRowUpdating="GVChoferes_RowUpdating" OnRowCancelingEdit="GVChoferes_RowCancelingEdit" OnRowCommand="GVChoferes_RowCommand">
                     <Columns>
                         <asp:ButtonField Text="Seleccionar" CommandName="Select" ButtonType="Button" ControlStyle-CssClass="btn btn-info btn-xs" ControlStyle-Width="80px" ControlStyle-Height="40px" >
 
 <ControlStyle CssClass="btn btn-info btn-xs" Height="40px" Width="80px"></ControlStyle>
                         </asp:ButtonField>
 
-                        <asp:CommandField ShowDeleteButton="true" ButtonType="Button" ControlStyle-CssClass="btn btn-danger btn-xs" ControlStyle-Width="80px" ControlStyle-Height="40px"  >
+                        <asp:CommandField ShowDeleteButton="true" ButtonType="Button" ControlStyle-CssClass="btn btn-danger btn-xs" ControlStyle-Width="80px" ControlStyle-Height="40px" >
 
 <ControlStyle CssClass="btn btn-danger btn-xs" Height="40px" Width="80px"></ControlStyle>
                         </asp:CommandField>
@@ -30,7 +30,7 @@
 <ItemStyle Width="120px"></ItemStyle>
                         </asp:ImageField>
 
-                        <asp:BoundField HeaderText="Chofer" ItemStyle-Width="150px" DataField="IdChofer" >
+                        <asp:BoundField HeaderText="Chofer" ItemStyle-Width="150px" DataField="IdChofer" readonly="true">
 
 <ItemStyle Width="150px"></ItemStyle>
                         </asp:BoundField>
@@ -50,7 +50,7 @@
 <ItemStyle Width="250px"></ItemStyle>
                         </asp:BoundField>
 
-                        <asp:BoundField HeaderText="Licencia" ItemStyle-Width="150px" DataField="Licencia" >
+                        <asp:BoundField HeaderText="Licencia" ItemStyle-Width="150px" DataField="Licencia" readonly="true">
 
 <ItemStyle Width="150px"></ItemStyle>
                         </asp:BoundField>

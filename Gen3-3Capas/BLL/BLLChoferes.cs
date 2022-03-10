@@ -34,7 +34,7 @@ namespace Gen3_3Capas.BLL
         {
             try
             {
-                DALChoferes.UpdChofer(id,paramLicencia, paramTelefono, paramFechaNacimiento, paramNombre, ApPaterno, ApMaterno, paramUrlFoto,paramDisponibilidad);
+                DALChoferes.UpdChofer(id, paramLicencia, paramTelefono, paramFechaNacimiento, paramNombre, ApPaterno, ApMaterno, paramUrlFoto, paramDisponibilidad);
             }
             catch (Exception ex)
             {
@@ -48,18 +48,30 @@ namespace Gen3_3Capas.BLL
         {
             try
             {
-                //verificar la disponibilidad del chofeer
-                ChoferesVO chofer = DALChoferes.GetChoferById(id);
-                if (chofer.Disponibilidad)
+                //verificar que el chofer no se encuantre en la tabla rutas
+                bool enRuta = DALChoferes.ChoferEnRuta(id);
+                if (!enRuta)
                 {
-                    DALChoferes.DelChofer(id);
-                    return "1";
+                    //verificar la disponibilidad del chofeer
+                    ChoferesVO chofer = DALChoferes.GetChoferById(id);
+                    if (chofer.Disponibilidad)
+                    {
+                        DALChoferes.DelChofer(id);
+                        return "1";
+                    }
+                    else
+                    {
+                        return "0";
+                    }
+
                 }
                 else
                 {
-                    return "0";
+                    return "2";
                 }
-                
+
+
+
             }
             catch (Exception)
             {
@@ -72,6 +84,11 @@ namespace Gen3_3Capas.BLL
         public static ChoferesVO GetChoferById(int id)
         {
             return DALChoferes.GetChoferById(id);
+        }
+
+        public static bool ChoferEnRuta(int id)
+        {
+            return DALChoferes.ChoferEnRuta(id);
         }
     }
 }

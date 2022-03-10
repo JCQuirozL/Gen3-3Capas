@@ -66,7 +66,7 @@ namespace Gen3_3Capas.DAL
         {
             try
             {
-                DBConnection.ExecuteNonQuery("Choferes_Actualizar","@id",paramIdChofer,"@Nombre", paramNombre, "@ApPaterno", ApPaterno, "@Apmaterno", ApMaterno, "@Telefono", paramTelefono, "@FechaNacimiento", paramFechaNacimiento, "@Licencia", paramLicencia, "@UrlFoto", paramUrlFoto, "@Disponibilidad", paramDisponibilidad);
+                DBConnection.ExecuteNonQuery("Choferes_Actualizar","@id",paramIdChofer,"@Nombre", paramNombre, "@ApPaterno", ApPaterno, "@Apmaterno", ApMaterno, "@Telefono", paramTelefono, "@FechaNac", paramFechaNacimiento, "@Licencia", paramLicencia, "@UrlFoto", paramUrlFoto, "@Disponibilidad", paramDisponibilidad);
             }
             catch (Exception ex)
             {
@@ -112,6 +112,34 @@ namespace Gen3_3Capas.DAL
 
                 throw;
             }
+        }
+
+        public static bool ChoferEnRuta(int id)
+        {
+            try
+            {
+                //LLamar al Store Procedure "Chofer_EnRuta de la BDD"
+                DataSet dsChofer = DBConnection.ExecuteDataSet("Chofer_EnRuta", "@id", id);
+
+                //Si encontró registros entonces quiere decir que encontró choferes asignados a alguna ruta
+                if(dsChofer.Tables[0].Rows.Count > 0)
+                {
+                    //Por lógica de negocio no puedes eliminar un chofer que históricamente está en la tabla rutas
+                    return true;
+                }
+                else
+                {
+                    //Devolvemos false para posteriormente eliminar
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+               
+                throw;
+            }
+
+           
         }
     }
 }

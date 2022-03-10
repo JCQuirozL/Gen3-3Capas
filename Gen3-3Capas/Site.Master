@@ -72,6 +72,17 @@
                                         Alta de chofer
                                     </a>
                                 </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="/Catalogos/Camiones/ListadoCamiones.aspx">
+                                        Lista de Camiones
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Catalogos/Camiones/ListadoCamiones.aspx">
+                                        Alta de camión
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
