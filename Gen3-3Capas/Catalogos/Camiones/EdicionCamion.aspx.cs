@@ -32,6 +32,7 @@ namespace Gen3_3Capas.Catalogos.Camiones
                 txtMatricula.Text = camion.Matricula;
                 imgFotoCamion.ImageUrl = camion.UrlFoto;
                 urlFoto.InnerText = camion.UrlFoto;
+                chkDisponibilidad.Checked = camion.Disponibilidad;
             }
         }
 
@@ -78,9 +79,10 @@ namespace Gen3_3Capas.Catalogos.Camiones
                 int IdCamion = int.Parse(Request.QueryString["Id"]);
                 string matricula = txtMatricula.Text;
                 string urlfoto = urlFoto.InnerText;
+                bool disponible = chkDisponibilidad.Checked;
 
                 //Mandar llamar la funcion con los argmentos de arriba para guardar el registro
-                BLL.BLLCamiones.UpdCamion(IdCamion,matricula,null,null,null,null,null,null,urlfoto);
+                BLL.BLLCamiones.UpdCamion(IdCamion,matricula,null,null,null,null,null,disponible,urlfoto);
 
                 Utils.UtilControls.SweetBoxConfirm("Exito!", "Camión actualizado exitosamente", "success", "ListadoCamiones.aspx", this.Page, this.GetType());
             }

@@ -185,7 +185,7 @@ namespace Gen3_3Capas.DAL
         {
             try
             {
-                //mando llamar al stre procedure en ruta con el parámetro @entidad=0 porq es cuando entra a comparar el CamionId
+                //mando llamar al stored procedure en ruta con el parámetro @entidad=0 porq es cuando entra a comparar el CamionId
                 DataSet dsCamion = DBConnection.ExecuteDataSet("En_Ruta", "@id", id, "@entidad", 0);
 
                 //Si encontró registros entonces quiere decir que encontró camiones asignados a alguna ruta

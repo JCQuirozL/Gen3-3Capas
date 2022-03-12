@@ -10,8 +10,6 @@
                 <asp:GridView ID="GVChoferes" CssClass="table table-bordered table-striped table-condensed" runat="server" AutoGenerateColumns="false" OnRowDeleting="GVChoferes_RowDeleting" DataKeyNames="IdChofer" OnRowEditing="GVChoferes_RowEditing" OnRowUpdating="GVChoferes_RowUpdating" OnRowCancelingEdit="GVChoferes_RowCancelingEdit" OnRowCommand="GVChoferes_RowCommand">
                     <Columns>
                         <asp:ButtonField Text="Seleccionar" CommandName="Select" ButtonType="Button" ControlStyle-CssClass="btn btn-info btn-xs" ControlStyle-Width="80px" ControlStyle-Height="40px" >
-
-<ControlStyle CssClass="btn btn-info btn-xs" Height="40px" Width="80px"></ControlStyle>
                         </asp:ButtonField>
 
                         <asp:CommandField ShowDeleteButton="true" ButtonType="Button" ControlStyle-CssClass="btn btn-danger btn-xs" ControlStyle-Width="80px" ControlStyle-Height="40px" >

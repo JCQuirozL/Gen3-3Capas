@@ -19,6 +19,8 @@ namespace Gen3_3Capas.VO
         public string Nombre { get => _Nombre; set => _Nombre = value; }
         public string ApPAterno { get => _ApPAterno; set => _ApPAterno = value; }
         public string ApMaterno { get => _ApMaterno; set => _ApMaterno = value; }
+
+        public string NombreCompleto { get => Nombre + " " + ApPAterno + " " + ApMaterno; }
         public string Telefono { get => _Telefono; set => _Telefono = value; }
         public string Licencia { get => _Licencia; set => _Licencia = value; }
         public string UrlFoto { get => _UrlFoto; set => _UrlFoto = value; }

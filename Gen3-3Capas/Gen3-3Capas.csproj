@@ -53,6 +53,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -109,12 +111,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="autocomplete.asmx" />
     <Content Include="Catalogos\Camiones\AltaCamion.aspx" />
     <Content Include="Catalogos\Camiones\EdicionCamion.aspx" />
     <Content Include="Catalogos\Camiones\ListadoCamiones.aspx" />
     <Content Include="Catalogos\Choferes\AltaChofer.aspx" />
     <Content Include="Catalogos\Choferes\EdicionChofer.aspx" />
     <Content Include="Catalogos\Choferes\ListadoChoferes.aspx" />
+    <Content Include="Catalogos\Rutas\AltaRuta.aspx" />
+    <Content Include="Connected Services\WSReference\Gen3_3Capas.WSReference.insDireccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WSReference\Gen3_3Capas.WSReference.InsertarCargamentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\WSReference\WSRutas.disco" />
+    <None Include="Connected Services\WSReference\configuration91.svcinfo" />
+    <None Include="Connected Services\WSReference\configuration.svcinfo" />
+    <None Include="Connected Services\WSReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -135,6 +152,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Connected Services\WSReference\WSRutas.wsdl" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -183,8 +201,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="autocomplete.asmx.cs">
+      <DependentUpon>autocomplete.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BLL\BLLCamiones.cs" />
     <Compile Include="BLL\BLLChoferes.cs" />
+    <Compile Include="BLL\BLLRutas.cs" />
     <Compile Include="Catalogos\Camiones\AltaCamion.aspx.cs">
       <DependentUpon>AltaCamion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,6 +250,18 @@
     <Compile Include="Catalogos\Choferes\ListadoChoferes.aspx.designer.cs">
       <DependentUpon>ListadoChoferes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Catalogos\Rutas\AltaRuta.aspx.cs">
+      <DependentUpon>AltaRuta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Rutas\AltaRuta.aspx.designer.cs">
+      <DependentUpon>AltaRuta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WSReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -236,6 +271,7 @@
     </Compile>
     <Compile Include="DAL\DALCamiones.cs" />
     <Compile Include="DAL\DALChoferes.cs" />
+    <Compile Include="DAL\DALRutas.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,6 +309,7 @@
     </Compile>
     <Compile Include="VO\CamionesVO.cs" />
     <Compile Include="VO\ChoferesVO.cs" />
+    <Compile Include="VO\RutasVO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +324,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WSReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

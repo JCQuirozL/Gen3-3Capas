@@ -63,24 +63,25 @@
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Catálogo <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/Catalogos/Choferes/ListadoChoferes.aspx">
-                                        Lista de Choferes
+                                    <a href="/Catalogos/Choferes/ListadoChoferes.aspx">Lista de Choferes
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/Catalogos/Choferes/AltaChofer.aspx">
-                                        Alta de chofer
+                                    <a href="/Catalogos/Choferes/AltaChofer.aspx">Alta de chofer
                                     </a>
                                 </li>
                                 <li role="separator" class="divider"></li>
                                 <li>
-                                    <a href="/Catalogos/Camiones/ListadoCamiones.aspx">
-                                        Lista de Camiones
+                                    <a href="/Catalogos/Camiones/ListadoCamiones.aspx">Lista de Camiones
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/Catalogos/Camiones/ListadoCamiones.aspx">
-                                        Alta de camión
+                                    <a href="/Catalogos/Camiones/ListadoCamiones.aspx">Alta de camión
+                                    </a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="/Catalogos/Rutas/AltaRuta.aspx">Alta de ruta
                                     </a>
                                 </li>
                             </ul>

@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EdicionCamion.aspx.cs" Inherits="Gen3_3Capas.Catalogos.Camiones.EdicionCamion" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h3>Edición de camión 
-                    <asp:Label ID="idCamion" runat="server"></asp:Label>    
+                    <asp:Label ID="idCamion" runat="server"></asp:Label>
                 </h3>
             </div>
         </div>
@@ -28,6 +29,13 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <div class="checkbox" style="margin: 30px;">
+                        <label>
+                            <asp:CheckBox ID="chkDisponibilidad" runat="server" />Disponibilidad
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="<%=subeImagen.ClientID%>">Seleccionar foto</label>
                     <div class="row">
                         <div class="col-md-3">
@@ -38,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label>Foto</label>
                     <asp:Image ID="imgFotoCamion" Width="150" Height="100" runat="server" />
                     <label id="urlFoto" runat="server"></label>
@@ -48,7 +56,10 @@
                     <div class="form-group">
                         <asp:Button ID="btnGuardar" CssClass="btn btn-primary" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                     </div>
-                     <div class="form-group">
+
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
                         <asp:Button ID="btnCancelar" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                     </div>
                 </div>

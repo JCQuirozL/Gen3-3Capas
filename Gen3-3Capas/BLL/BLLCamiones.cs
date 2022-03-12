@@ -60,7 +60,7 @@ namespace Gen3_3Capas.BLL
 
                 foreach (CamionesVO item in LstCamiones)
                 {
-                    if (item.Matricula == Matricula)
+                    if (item.Matricula == Matricula && item.Id != id)
                     {
                         existe = true;
                     }
